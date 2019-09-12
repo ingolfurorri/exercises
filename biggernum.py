@@ -9,4 +9,4 @@ def bigger_num(num1, num2):
 num1 = int(input("Enter the first number: "))
 num2 = int(input("Enter the second number: "))
 
-print(bigger_num(num1, num2))
+print("The bigger number of {} and {} is {}".format(num1, num2, bigger_num(num1, num2)))
