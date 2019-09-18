@@ -1,16 +1,22 @@
+import string
+
 def clean_word(word):
     '''Removes the carriage return'''
     return word.strip()
 
 def punctation(word):
-    '''If the word has a punctation, takes it out and saves it'''
+    #Currently takes out all punctations
+    '''If the word has a punctation at the end, takes it out and saves it'''
     word_alpha = ''
     word_punctation = ''
+    i = 0
     for char in word:
-        if (char.isalpha()):
-            word_alpha += char
-        else:
+        i += 1
+        if(char in string.punctuation and i == len(word)):
             word_punctation += char
+        else:
+            word_alpha += char
+        
     return word_alpha, word_punctation
 
 def scrambler(word_mid):
@@ -38,8 +44,6 @@ try:
     file_str = input("Enter name of file: ")
     input_file = open(file_str, "r")
     scrambled_string = ''
-
-    #input_file = ['According ', 'to', 'research', 'at', 'an', 'English', 'university, ']
 
     #Shifts through the file, scrambling the words and adding them to a final string
     for word in input_file:
